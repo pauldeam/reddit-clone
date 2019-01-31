@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+
+  <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+
+
+
+</head>
+
+<body>
+
+  <h1>Home Page</h1>
+  <p>Login to access the restricted page.</p>
+  <div class="container">
+    <input id="txtEmail" type="email" placeholder="Email" />
+    <input id="txtPassword" type="password" placeholder="Password" />
+    <button id="btnLogin" class="btn btn-action">Login</button>
+    <button id="btnSignUp" class="btn btn-secondary">Sign Up</button>
+    <button hidden id="btnLogout" class="btn btn-action hide">Logout</button>
+
+    <button hidden id="btnResetPass" class="btn btn-secondary hide">Reset Password</button>
+
+
+    <!--social media stuff-->
+    <div>
+      <h2>OAuth Section</h2>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="style.css"></link>
+      <button id='facebookLogin' class="fa fa-facebook"></button>
+      <button id='twitterLogin' class="fa fa-twitter"></button>
+      <button id='googleLogin' class="fa fa-google"></button>
+    </div>
+    <script>
+      var popupLogin = function(provider) {
+        //console.log("AuthO Called");
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          //var token = result.credential.accessToken;
+          // The signed-in user info.
+          //var user = result.user;
+          //alert('Successfully Logined');
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          //var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          //var credential = error.credential;
+          alert(errorMessage);
+        });
+      };
+
+
+      var facebookLogin = function() {
+        popupLogin(new firebase.auth.FacebookAuthProvider());
+      };
+
+      var googleLogin = function() {
+        popupLogin(new firebase.auth.GoogleAuthProvider());
+      }
+
+      var twitterLogin = function() {
+        popupLogin(new firebase.auth.TwitterAuthProvider());
+      }
+
+      document.getElementById('facebookLogin').onclick = facebookLogin;
+      document.getElementById('googleLogin').onclick = googleLogin;
+      document.getElementById('twitterLogin').onclick = twitterLogin;
+    </script>
+
+  </div>
+
+  <script src="home.js"></script>
+</body>
+
+</html>

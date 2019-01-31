@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+
+    <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>You're Logged In</h1>
+
+    <input hidden id="txtEmail" type="email" placeholder="Email" />
+    <input hidden id="txtPassword" type="password" placeholder="Password" />
+
+    <button hidden id="btnLogin" class="btn btn-action hide">Login</button>
+    <button hidden id="btnSignUp" class="btn btn-secondary hide">Sign Up</button>
+    <button hidden id="btnLogout" class="btn btn-action hide">Logout</button>
+
+    <input id="txtResetPass" type="password" placeholder="Reset Password" />
+    <!--<input type="button" value="Reset Password" onclick="resetPass();" />-->
+    <button id="btnResetPass" class="btn btn-secondary">Reset Password</button>
+
+</body>
+
+<body>
+    <p>Click the following button to Logout and redirect to home page.</p>
+    <form>
+        <input type="button" value="Logout" onclick="authRedirectRestricted();" />
+
+        <input type="button" value="Go To Feed" onclick="authAddPost();" />
+
+
+    </form>
+    <script src="home.js"></script>
+</body>
+
+</html>

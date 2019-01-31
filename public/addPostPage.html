@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <!-- Load the Firebase library before loading the body. -->
+        <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    
+        <!-- Load the jQuery library, which we'll use to manipulate HTML elements with Javascript. -->
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    
+        <!-- Load Bootstrap stylesheet, which will is CSS that makes everything prettier and also responsive (aka will work on all devices of all sizes). -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+      </head>
+      
+    <body>
+        <script src="postHandler.js"></script>
+        
+          <div class="container">
+            
+            <br><a href="/AuthProj/public/restrictedPage.html">Back</a>
+
+          <h2>Feed of Titles</h2>
+          
+          <p>To create a post either scroll to the bottom or <A HREF="#BOTTOM">Click Here!</A></p>
+          
+          
+          <!--Enter a Comment Here: <input type="text" id="newComment"><br>-->
+          
+          
+           <form id="commentsForm">
+            
+            <div class="form-group">
+              <label for="newComment"></label>
+              <input class="form-control" id="newComment" placeholder="Type a Comment then Press Submit Comment!">
+            </div>
+          </form>
+          
+          
+          
+          
+          
+          
+          <p id="object"></p>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Auther</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>Comments</th>
+            
+          </tr>
+        </thead>
+        <tbody id="table_body">
+          <tr>
+             <!--This is empty for now, but it will be filled out by an event handler in application.js with the most recent recommendation data from Firebase. -->
+            <!--<td id="title"></td>-->
+            <!--<td id="presenter"></td>-->
+            <!--<td id="link"></td>-->
+            <!--<td id="likes"></td>-->
+            <!--<td id="dislikes"></td>-->
+          </tr>
+        </tbody>
+      </table>
+          
+          
+    
+          <h3>Create a Post</h3>
+    
+          <form id="recommendationForm">
+            
+            <div class="form-group">
+              <label for="talkTitle">Title</label>
+              <input class="form-control" id="talkTitle" placeholder="Type a Title Here!">
+            </div>
+    
+            <div class="form-group">
+              <label for="talkPresenter">Author</label>
+              <input class="form-control" id="talkPresenter" placeholder="Author's Name Goes Here!">
+            </div>
+    
+            <!-- When you click this button, trigger the submit event on this form. -->
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <A NAME="BOTTOM"></A>
+        
+    </body>
+</html>
